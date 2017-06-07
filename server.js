@@ -11,33 +11,33 @@ mongoose.promise = global.Promise;
 // Config
 const config = require('./config');
 
-// // Load api Routes
-// let api = require('./app/routes/api').api;
+// Load api Routes
+let api = require('./app/routes/api').api;
 
-// // Connect to Mongo database
-// mongoose.connect(config.database)
-//   .then(() => {
-//     console.log('Successfully connected');
-//   })
-//   .catch((err) => {
-//     console.log(err.toString());
-//   })
+// Connect to Mongo database
+mongoose.connect(config.database)
+  .then(() => {
+    console.log('Successfully connected');
+  })
+  .catch((err) => {
+    console.log(err.toString());
+  })
 
-// // User Body parser to grab information from POST requests
-// app.use(bodyParser.urlencoded({extended: true}));
-// app.use(bodyParser.json());
+// User Body parser to grab information from POST requests
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
 
-// // Configure app to handle CORS requests
-// app.use(function (req, res, next) {
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
-//   res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
-//   next();
-// })
+// Configure app to handle CORS requests
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Authorization');
+  next();
+})
 
-// // Log all requests to the console
-// app.use(morgan('dev'));
-// app.use('/api', api);
+// Log all requests to the console
+app.use(morgan('dev'));
+app.use('/api', api);
 
 app.get('/', function(req, res) {
   res.send('Welcome to the api');
