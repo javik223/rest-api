@@ -50,7 +50,7 @@ apiRouter.post('/authenticate', function(req, res) {
               const token = jwt.sign({
                 name: user.name,
                 username: user.username
-              }, secret, {
+              }, superSecret, {
                 expiresIn: 1440 // expires in 24hours
               });
 
@@ -75,7 +75,7 @@ apiRouter.use(function(req, res, next) {
   // Decode token
   if (token) {
     // verifieds secret and checks exp
-    jwt.verify(token, secret, function(err, decoded) {
+    jwt.verify(token, superSecret, function(err, decoded) {
       if (err) {
         return res.status(403).send({
           success: false,
