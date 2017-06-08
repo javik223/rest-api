@@ -16,6 +16,10 @@
     "morgan": "^1.8.2"
   },
   "dependencies": {
-    "jsonwebtoken": "^7.4.1"
+    "compression": "^1.6.2",
+    "jsonwebtoken": "^7.4.1",
+    "new": "^0.1.1",
+    "newrelic": "^1.40.0",
+    "relic": "^0.2.0"
   }
 }

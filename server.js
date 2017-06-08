@@ -1,4 +1,5 @@
 // BASE SERVER SETUP
+let newrelic = require('newrelic');
 
 // CALL THE PACKAGES 
 let express = require('express');
@@ -7,6 +8,9 @@ let bodyParser = require('body-parser');
 let morgan = require('morgan');
 let mongoose = require('mongoose');
 mongoose.promise = global.Promise;
+
+// Logging, Compression, and new relic
+let compression = require('compression');
 
 // Config
 const config = require('./config');
@@ -22,6 +26,9 @@ mongoose.connect(config.database)
   .catch((err) => {
     console.log(err.toString());
   })
+
+// Use compression
+app.use(compression);
 
 // User Body parser to grab information from POST requests
 app.use(bodyParser.urlencoded({extended: true}));

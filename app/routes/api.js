@@ -46,7 +46,7 @@ apiRouter.post('/authenticate', function(req, res) {
                 message: 'Authentication failed. Wrong password'
               });
             } else {
-              // If user is found and password is right
+              // If user is found and password is right generate token
               const token = jwt.sign({
                 name: user.name,
                 username: user.username
