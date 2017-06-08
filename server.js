@@ -1,5 +1,5 @@
 // BASE SERVER SETUP
-// let newrelic = require('newrelic');
+let newrelic = require('newrelic');
 
 // CALL THE PACKAGES 
 let express = require('express');
