@@ -28,7 +28,7 @@ mongoose.connect(config.database)
   })
 
 // Use compression
-app.use(compression);
+app.use(compression());
 
 // User Body parser to grab information from POST requests
 app.use(bodyParser.urlencoded({extended: true}));
